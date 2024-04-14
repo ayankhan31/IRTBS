@@ -1,0 +1,74 @@
+package com.example.demo.models;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "seatavailability")
+public class SeatAvailability {	
+    
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int seatAvailabilityId;
+    
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "route_id", nullable = false)
+    private Route route;
+
+  
+    private String journeyStartDate;
+    private int trainCoachId;
+    private int seatAvailable;
+	public SeatAvailability(int seatAvailabilityId, Route route,
+			String journeyStartDate, int trainCoachId, int seatAvailable) {
+		super();
+		this.seatAvailabilityId = seatAvailabilityId;
+		this.route = route;
+		
+		this.journeyStartDate = journeyStartDate;
+		this.trainCoachId = trainCoachId;
+		this.seatAvailable = seatAvailable;
+	}
+	public int getSeatAvailabilityId() {
+		return seatAvailabilityId;
+	}
+	public void setSeatAvailabilityId(int seatAvailabilityId) {
+		this.seatAvailabilityId = seatAvailabilityId;
+	}
+	public Route getRoute() {
+		return route;
+	}
+	public void setRoute(Route route) {
+		this.route = route;
+	}
+
+	public String getJourneyStartDate() {
+		return journeyStartDate;
+	}
+	public void setJourneyStartDate(String journeyStartDate) {
+		this.journeyStartDate = journeyStartDate;
+	}
+	public int getTrainCoachId() {
+		return trainCoachId;
+	}
+	public void setTrainCoachId(int trainCoachId) {
+		this.trainCoachId = trainCoachId;
+	}
+	public int getSeatAvailable() {
+		return seatAvailable;
+	}
+	public void setSeatAvailable(int seatAvailable) {
+		this.seatAvailable = seatAvailable;
+	}
+
+    // Getters and setters
+    
+    
+}
+

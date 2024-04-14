@@ -1,0 +1,35 @@
+package com.example.demo.controllers;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.example.demo.models.Station;
+import com.example.demo.repositories.StationRepository;
+
+@RestController
+@CrossOrigin(origins = "http://localhost:3000", allowCredentials = "true")
+@RequestMapping("station/")
+public class StationController {
+	
+	@Autowired
+	private StationRepository repo;
+	
+	@GetMapping("/getRecord")
+	public List<Station> getStation(){
+		return repo.findAll();
+	}
+	
+	@PostMapping("insert/")
+	public Station insertStation(@RequestBody Station s) {
+		return repo.save(s);
+	}
+	
+
+}

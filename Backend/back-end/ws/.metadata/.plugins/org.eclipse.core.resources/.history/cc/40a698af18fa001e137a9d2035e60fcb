@@ -1,0 +1,15 @@
+spring.application.name=final-admin-operation
+
+
+server.port=8898
+
+# MySQL DataSource configuration
+spring.datasource.url=jdbc:mysql://localhost:3306/ss_train
+spring.datasource.username=root
+spring.datasource.password=Mamtaranip844&
+
+# Specify the JDBC driver
+spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+
+# Hibernate ddl auto (create, create-drop, validate, update)
+spring.jpa.hibernate.ddl-auto=update
